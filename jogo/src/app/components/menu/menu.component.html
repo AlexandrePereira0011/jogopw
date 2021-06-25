@@ -1,0 +1,92 @@
+<div class="card caixa">
+  <img class="card-img-top" src="../../../assets/imagens/gif.gif" alt="Card image cap" style="height: 35vh;"><button class="btn" [routerLink]="['/Jogo']">
+    <span class="btn__inner"><span class="btn__slide"></span><span class="btn__content">JOGAR
+  </span></span></button>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <button class="btn" (click)="abrirCriarpersonagem(criarPersonagem)">
+          <span class="btn__inner"><span class="btn__slide"></span><span class="btn__content">Criar personagem
+        </span></span></button>
+        <h3>Personagens</h3>
+        <select class="form-select" (change)="opcaoSelect($event)" >
+          <option *ngFor=" let persona of personagens; index as posicao;" value="{{posicao}}">{{persona.nome}} </option>
+        </select>
+        <h4 id="first">Ataque: {{personagens[posicao].atk}}</h4>
+        <h4>Vida: {{personagens[posicao].vida}}</h4>
+        <h4>Inteligencia: {{personagens[posicao].int}}</h4>
+      </div>
+      <div class="col-6">
+        <button class="btn" (click)="abrirCriarArma(criarArma)">
+          <span class="btn__inner"><span class="btn__slide"></span><span class="btn__content">Criar personagem
+        </span></span></button>
+        <h3>Armas</h3>
+       <!--  SELECT PARA ESCOLHER AS ARMAS
+
+        <select class="form-select" (change)="opcaoSelectW($event)" >
+          <option *ngFor=" let weapon of armasarray; index as posicaoW;" value="{{posicaoW}}">{{weapon.nome}} </option>
+        </select>
+        <h4>Nome: {{armasarray[posicaoW].nome}}</h4>
+        <h4>Ataque: {{armasarray[posicaoW].atk}}</h4>
+       <h4>Durabilidade: {{armasarray[posicaoW].Durabilidade}}</h4> -->
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #criarPersonagem let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title ">Criar personagem</h3>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label class="letraInput">Nome Utilizador</label>
+        <input type="text" class="form-control " #nomeP>
+      </div><br>
+      <div class="form-group">
+        <label class="letraInput">Ataque</label>
+        <input type="number" class="form-control " min="1" max="30" #atkP>
+      </div><br>
+      <div class="form-group">
+        <label class="letraInput">Vida</label>
+        <input type="number" class="form-control " min="1" max="30" #vidaP>
+      </div><br>
+      <div class="form-group">
+        <label class="letraInput">Inteligencia</label>
+        <input type="number" class="form-control " min="1" max="30" #intP>
+      </div><br>
+      <button type="submit" class="btn btn-primary " (click)="personagem(nomeP.value, atkP.value,vidaP.value, intP.value, criarPersonagem)">Criar</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #criarArma let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title ">Criar arma</h3>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label class="letraInput">Nome da arma</label>
+        <input type="text" class="form-control " #nomeA>
+      </div><br>
+      <div class="form-group">
+        <label class="letraInput">Ataque</label>
+        <input type="number" class="form-control " min="1" max="30" #atkA>
+      </div><br>
+      <div class="form-group">
+        <label class="letraInput">Durabilidade</label>
+        <input type="number" class="form-control " min="1" max="30" #durabilidade>
+      </div><br>
+      <button type="submit" class="btn btn-primary " (click)="arma(nomeA.value, atkA.value,durabilidade.value, criarArma)">Criar</button>
+    </form>
+  </div>
+</ng-template>

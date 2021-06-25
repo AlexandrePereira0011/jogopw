@@ -1,0 +1,51 @@
+<div class="meio">
+  <button class="btn" (click)="abrir(login)">
+    <span class="btn__inner"><span class="btn__slide"></span><span class="btn__content">Entrar
+  </span></span></button>
+</div>
+
+<ng-template #login let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title letraLogin" id="modal-basic-title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Utilizador</label>
+        <input type="email" class="form-control" #user>
+      </div><br>
+      <div class="form-group">
+        <label>Palavra-passe</label>
+        <input type="password" class="form-control" #pass>
+      </div><br>
+      <a (click)="abrirCriar(registo,login)" class="criarConta">Não tem conta? Criar conta</a><br><br>
+      <button type="submit" class="btn btn-primary" (click)="entrar(user.value, pass.value, registo)">Entrar</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #registo let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Criar Utilizador</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Utilizador</label>
+        <input type="text" class="form-control" #userRegisto>
+      </div><br>
+      <div class="form-group">
+        <label>Palavra-passe</label>
+        <input type="password" class="form-control" #passRegisto>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="registoCriar(userRegisto.value, passRegisto.value, registo)">Registar</button>
+    </form>
+  </div>
+</ng-template>
+

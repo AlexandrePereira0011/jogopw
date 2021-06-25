@@ -1,0 +1,31 @@
+<div class="bg">
+  <div class="caixa row" >
+    <div class="col-5">
+      <div class="caixaStats">
+        <h4>Nome: {{nomeP1}}</h4><br>
+        <h4>Ataque: {{atkP1}}</h4><br>
+        <h4>Vida: {{vidaP1}}</h4><br>
+        <h4>Inteligencia: {{intlP1}}</h4>
+      </div>
+
+        <img id="largetha" src="../../../assets/imagens/lagertha_attack.png">
+    </div>
+
+    <div class="col-2">
+        <button class="btn" (click)="batalhar()">
+        <span class="btn__inner"><span class="btn__slide"></span><span class="btn__content">Batalhar
+      </span></span></button><br><br>
+
+      <h4 class="letra" id="ganhou" style="display: none;">{{winner}} ganhou</h4>
+    </div>
+    <div class="col-5 ">
+      <div class="d-flex align-items-end flex-column caixaStats">
+        <h4>Nome: {{nomeP2}}</h4><br>
+        <h4>Ataque: {{atkP2}}</h4><br>
+        <h4>Vida: {{vidaP2}}</h4><br>
+        <h4>Inteligencia: {{intlP2}}</h4><br>
+      </div>
+        <img  id="inimigo" src="../../../assets/imagens/inimigo.png">
+    </div>
+  </div>
+</div>
